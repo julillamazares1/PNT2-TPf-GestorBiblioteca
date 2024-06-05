@@ -1,0 +1,38 @@
+[
+    {
+        "nombre": "Cien años de soledad",
+        "autor": "Gabriel García Márquez",
+        "descripcion": "Esta obra maestra narra la historia de la familia Buendía en el pueblo ficticio de Macondo. Es un relato multigeneracional que mezcla realismo mágico con elementos históricos y míticos.",
+        "id": "01"
+    },
+    {
+        "nombre": "Rayuela",
+        "autor": "Julio Cortázar",
+        "descripcion": "Esta novela innovadora permite varias formas de lectura y aborda temas como el amor, la búsqueda existencial y la literatura. La historia sigue a Horacio Oliveira y sus amigos en París y Buenos Aires.",
+        "id": "02"
+    },
+    {
+        "nombre": "El amor en los tiempos del cólera",
+        "autor": "Gabriel García Márquez",
+        "descripcion": "Esta novela cuenta la historia de un amor no correspondido que dura más de cincuenta años. Florentino Ariza y Fermina Daza experimentan el paso del tiempo y las transformaciones del amor.",
+        "id": "03"
+    },
+    {
+        "nombre": "Bestiario",
+        "autor": "Julio Cortázar",
+        "descripcion": "Esta colección de cuentos incluye relatos fantásticos y extraños, donde lo cotidiano se mezcla con lo sobrenatural. 'Casa tomada' y 'La noche boca arriba' son dos de sus cuentos más conocidos.",
+        "id": "04"
+    },
+    {
+        "nombre": "Crónica de una muerte anunciada",
+        "autor": "Gabriel García Márquez",
+        "descripcion": "La novela relata el asesinato de Santiago Nasar, un crimen anunciado por los hermanos Vicario como venganza por la deshonra de su hermana Ángela. García Márquez utiliza una estructura periodística para contar la historia.",
+        "id": "05"
+    },
+    {
+        "nombre": "Final del juego",
+        "autor": "Julio Cortázar",
+        "descripcion": "Cortázar presenta una serie de cuentos que desafían las convenciones narrativas. Con un estilo único y surrealista, explora temas como la alienación, el destino y la realidad.",
+        "id": "06"
+    }
+]
