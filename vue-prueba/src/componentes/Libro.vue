@@ -4,6 +4,22 @@
     <h1>Formulario de alta de libros</h1>
   </section>
 
+  <div v-if="posts.length" class="table-responsive">
+      <table class="table table-dark">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Autor</th>
+          <th>Descripción</th>
+        </tr>
+        <tr v-for="(post, index) in posts" :key="index">
+          <td>{{ post.userId }}</td>
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.body }}</td>
+        </tr>
+      </table>    
+    </div>
 </template>
 
 <script lang="js">
@@ -30,7 +46,7 @@
 
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="css">
   .vue-prueba-src-componentes-libro {
 
   }
