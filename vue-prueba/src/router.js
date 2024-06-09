@@ -2,10 +2,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import Lector from "./componentes/Lector.vue";
 import LectorView from "./views/LectorView.vue";
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
+// const router = createRouter({
+//   history: createWebHistory(),
+//   routes,
+// });
 
 const routes = [
   {

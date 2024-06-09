@@ -1,6 +1,7 @@
-<template>
-<h1>Aca deberia ir el login del lector</h1>
-<section id="registro-lectores">
+<template lang="html">
+<section id="registro-lectores" class="src-componentes-lector">
+    <h1>Aca deberia ir el login del lector</h1>
+    
                 <h2>Registro de Lectores</h2>
                 <form>
                     <label for="nombre">Nombre:</label>
@@ -20,8 +21,30 @@
             </section>
 </template>
 
-<script setup>
+<script lang="js">
+
+export default  {
+    name: 'src-componentes-lector',
+    mounted () {
+
+    },
+    data () {
+      return {
+
+      }
+    },
+    methods: {
+
+    },
+    computed: {
+
+    }
+}
 </script>
 
-<style>
+<style scoped lang ="css">
+.src-componentes-lector{
+    background-color: aliceblue;
+
+}
 </style>
