@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Libro from './componentes/Libro.vue';
 import Home from './componentes/Home.vue';
-import Lector from './componentes/Lector.vue';
+import LectorView from '../views/LectorView.vue';
 const routes = [
   {
     path: '/',
@@ -16,7 +16,7 @@ const routes = [
   {
     path: '/Lector',
     name: 'Lector',
-    component: Lector
+    component:LectorView
   },
 
   { path: '/posts', name: 'posts', component: () => import('./views/LibroView.vue') },

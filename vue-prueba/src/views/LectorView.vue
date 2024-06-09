@@ -1,8 +1,15 @@
 <template>
-    <h1>Vista de lector</h1>
+    <Lector />
 </template>
 
 <script setup>
+import Lector from '../componentes/Lector.vue';
+export default{
+    name:'LectorView',
+    componentes:{
+        Lector
+    };
+}
 </script>
 
 <style>
