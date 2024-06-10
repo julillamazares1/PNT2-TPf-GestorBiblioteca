@@ -2,14 +2,16 @@
     <Lector />
 </template>
 
-<script setup>
+<script>
 import Lector from '../componentes/Lector.vue';
-export default{
+
+export default {
     name:'LectorView',
     componentes:{
         Lector
-    };
-}
+    }
+};
+
 </script>
 
 <style>

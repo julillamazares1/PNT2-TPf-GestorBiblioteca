@@ -1,8 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-export default{
-  name: 'App'
-};
+
 </script>
 
 <template>
