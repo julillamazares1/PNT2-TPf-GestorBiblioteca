@@ -1,16 +1,33 @@
 <template>
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/Libro">Libros</router-link>
-      <ul class="navbar-nav">
-            <li class="nav-item">
-              <RouterLink class="nav-link" to="/lector">Lector</RouterLink>
-            </li>
-        </ul>    
-<!--      <router-link :to="{ name: 'LectorView', params: { id: 1 } }">Lector</router-link>
-      <router-link to="/posts">Lectores</router-link> -->
+
+  <section class="src-componentes-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <RouterLink class="navbar-brand" to="/">Inicio</RouterLink>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/Home">Inicio</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/LibroView">Libros</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/LectorView">Lector</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" to="/Contacto">Contacto</RouterLink>
+          </li>
+
+        </ul>
+      </div>
     </nav>
-  </template>
+  </section>
+</template>
+
   
   <script lang="js">
   export default  {

@@ -1,15 +1,3 @@
-<script>
-import Navbar from './componentes/Navbar.vue';
-
-export default {
-  name: 'App',
-  components: {
-    Navbar,
-
-  }
-}
-</script>
-
 <template>
   <div>
 
@@ -27,6 +15,18 @@ export default {
     <router-view ></router-view>
   </div>
 </template>
+
+<script>
+import Navbar from './componentes/Navbar.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+
+  }
+}
+</script>
 
 <style scoped>
 .logo {
