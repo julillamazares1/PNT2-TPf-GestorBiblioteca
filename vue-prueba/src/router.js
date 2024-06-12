@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Libro from './componentes/Libro.vue';
-import Home from './componentes/Home.vue';
-import LectorView from '../views/LectorView.vue';
+//import Home from './componentes/Home.vue';
+import LectorView from './views/LectorView.vue';
 const routes = [
   {
     path: '/',
@@ -14,14 +14,15 @@ const routes = [
     component: Libro
   },
   {
-    path: '/Lector',
+    path: '/Lector/:id',
     name: 'Lector',
-    component:LectorView
+    component: Lector
   },
 
-  { path: '/posts', name: 'posts', component: () => import('./views/LibroView.vue') },
+  { path: '/posts', 
+    name: 'posts', 
+    component: () => import('./views/LibroView.vue') },
   
-  { path: '/post/:id', name: 'PostDetail', component: () => import('./views/PostDetail.vue') },
   
 ];
 

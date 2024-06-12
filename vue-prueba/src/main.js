@@ -8,6 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-createApp(App)
+const app = createApp(App)
   .use(router)
   .mount('#app')

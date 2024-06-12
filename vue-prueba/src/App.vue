@@ -1,17 +1,27 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import Navbar from './componentes/Navbar.vue';
 
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+
+  }
+}
 </script>
 
 <template>
   <div>
+
+    <Navbar />
+    <RouterView />
     <router-link to="/">
          Home </router-link>
     <router-link to="/about"> 
-       |Libros</router-link>
+       | About</router-link>
 
       <router-link to="/posts">
-      | Lectores</router-link>
+      | Post</router-link>
 
     <br/>
     <router-view ></router-view>
@@ -25,10 +35,12 @@ import HelloWorld from './components/HelloWorld.vue'
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
@@ -42,9 +54,11 @@ import HelloWorld from './components/HelloWorld.vue'
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }

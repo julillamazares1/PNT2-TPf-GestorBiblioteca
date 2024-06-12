@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
 <section id="registro-lectores" class="src-componentes-lector">   
     <div class="login">
         <h2>Login de Lectores</h2>
@@ -15,9 +15,14 @@
 </section>
 </template>
 
-<script lang="js">
+<script setup>
 
-export default  {
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+/* export default  {
     name: 'src-componentes-lector',
     mounted () {
 
@@ -33,7 +38,7 @@ export default  {
     computed: {
 
     }
-}
+} */
 </script>
 
 <style scoped lang ="css">

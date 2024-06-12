@@ -23,7 +23,13 @@
 </template>
 
 <script lang="js">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
+
+
+/* 
   export default  {
     name: 'vue-prueba-src-componentes-libro',
     props: [],
@@ -40,8 +46,8 @@
     },
     computed: {
 
-    }
-}
+    } */
+
 
 
 </script>
