@@ -43,7 +43,7 @@ const router = useRouter();
 
 <style scoped lang ="css">
 .src-componentes-lector{
-    background-color: aliceblue;
+    background-color: green;
 
 }
 </style>
