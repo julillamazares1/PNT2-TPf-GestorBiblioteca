@@ -1,65 +1,70 @@
-<template>
-  <div>
-
-    <Navbar />
-    <RouterView />
-    <router-link to="/">
-         Home </router-link>
-    <router-link to="/about"> 
-       | About</router-link>
-
-      <router-link to="/posts">
-      | Post</router-link>
-
-    <br/>
-    <router-view ></router-view>
-  </div>
-</template>
-
-<script>
-import Navbar from './componentes/Navbar.vue';
-
-export default {
-  name: 'App',
-  components: {
-    Navbar,
-
-  }
-}
+<script setup>
 </script>
 
+<template>
+  <section class="src-componentes-navbar">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="nav-links">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+
+            <router-link to="/">
+              Home </router-link>
+          </li>
+          <li class="nav-item">
+
+            <router-link to="/lector">
+              | Lector</router-link>
+          </li>
+          <li class="nav-item">
+
+            <router-link to="/libro">
+              | Libros</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/contacto">
+              | Contacto</router-link>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+  </section>
+
+
+  <br />
+  <router-view></router-view>
+</template>
+
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.nav-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
 }
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
-
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.nav-link:hover {
+  background-color: #e0e0e0;
+  color: #555;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.router-view {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
 }
 </style>

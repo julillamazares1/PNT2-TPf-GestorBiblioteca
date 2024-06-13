@@ -2,31 +2,32 @@
 
   <section class="src-componentes-navbar">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <RouterLink class="navbar-brand" to="/">Inicio</RouterLink>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      <ul class="navbar-nav">
+        <li class="nav-item">
+           <RouterLink class="navbar-brand" to="/">Inicio</RouterLink>
+         </li>
+<!--       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+      </button> -->
+ <!--      <div class="collapse navbar-collapse" id="navbarNav"> -->
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/Home">Inicio</RouterLink>
+            <RouterLink class="navbar-brand" to="/LibroView">Libros</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/LibroView">Libros</RouterLink>
+            <RouterLink class="navbar-brand" to="/LectorView">Lector</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/LectorView">Lector</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/Contacto">Contacto</RouterLink>
+            <RouterLink class="navbar-brand" to="/Contacto">Contacto</RouterLink>
           </li>
 
         </ul>
-      </div>
+<!--       </div> -->
     </nav>
   </section>
 </template>
+
+
 
   
   <script lang="js">

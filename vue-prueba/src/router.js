@@ -1,34 +1,37 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Libro from './componentes/Libro.vue';
-//import Home from './componentes/Home.vue';
-import LectorView from './views/LectorView.vue';
+import Home from './components/Home.vue'
+import Contacto from './components/Contacto.vue';
+
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/Libro',
-    name: 'Libro',
-    component: Libro
-  },
-  {
-    path: '/Lector/:id',
-    name: 'Lector',
-    component: Lector
-  },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+        path: '/contacto',
+        name: 'Contacto',
+        component: Contacto
+      }, 
 
-  { path: '/posts', 
-    name: 'posts', 
-    component: () => import('./views/LibroView.vue') },
+
+
+    { path: '/lector',
+         name: 'lector', 
+         component: () => import('./views/LectorView.vue') 
+    },
+    
+    { path: '/libro',
+         name: 'Libros', 
+         component: () => import('./views/LibroView.vue') 
+    },
+     
+
+  ];
   
+  const router = createRouter({
+    history: createWebHistory(),
+    routes,
+  });
   
-];
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
-export default router;
+  export default router;
