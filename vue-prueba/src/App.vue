@@ -1,38 +1,26 @@
-<script setup>
+<script>
+import Navbar from './components/Navbar.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+
+  }
+}
 </script>
-
 <template>
-  <section class="src-componentes-navbar">
+ 
+ <div class="container mt-3">
+    <div class="jumbotron">
+      <h1>Bienvenidos a Biblioteca ORT</h1>
+      <br>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="nav-links">
-        <ul class="navbar-nav">
-          <li class="nav-item">
+      <Navbar />
+   
 
-            <router-link to="/">
-              Home </router-link>
-          </li>
-          <li class="nav-item">
-
-            <router-link to="/lector">
-              | Lector</router-link>
-          </li>
-          <li class="nav-item">
-
-            <router-link to="/libro">
-              | Libros</router-link>
-          </li>
-
-          <li class="nav-item">
-            <router-link to="/contacto">
-              | Contacto</router-link>
-          </li>
-        </ul>
-      </div>
-
-    </nav>
-  </section>
-
+    </div>
+  </div>
 
   <br />
   <router-view></router-view>
