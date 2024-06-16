@@ -48,6 +48,7 @@ export default {
   color: #555;
 }
 
+
 .router-view {
   margin-top: 20px;
   padding: 10px;
@@ -55,4 +56,6 @@ export default {
   border-radius: 5px;
   background-color: #fff;
 }
+
+
 </style>
