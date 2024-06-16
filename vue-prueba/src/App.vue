@@ -10,14 +10,17 @@ export default {
 }
 </script>
 <template>
- 
- <div class="container mt-3">
+   <header class="header-flex">
+    <img alt="Cabecera Biblioteca" src="/images/cabecera.webp">
+
+  </header>
+  <div class="container mt-3">
     <div class="jumbotron">
       <h1>Bienvenidos a Biblioteca ORT</h1>
       <br>
 
       <Navbar />
-   
+
 
     </div>
   </div>
@@ -28,6 +31,30 @@ export default {
 
 
 <style scoped>
+h1 {
+  font-family:Verdana;
+  font-weight: bold;
+  font-size: 3em;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 5px rgb(74, 73, 73);
+}
+
+.header-flex {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  height: auto;
+}
+
+.header-flex img {
+  max-width: 100%;
+  height: auto;
+}
+.jumbotron {
+  text-justify: inherit;
+}
+
 .nav-links {
   display: flex;
   justify-content: center;
@@ -44,7 +71,7 @@ export default {
 }
 
 .nav-link:hover {
-  background-color: #e0e0e0;
+  background-color: #949494;
   color: #555;
 }
 
