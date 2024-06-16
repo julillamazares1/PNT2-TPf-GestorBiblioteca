@@ -115,19 +115,23 @@ export default {
           </li>
           <li class="nav-item">
 
-            <router-link  class="nav-link" to="/lector">
+            <router-link class="nav-link" to="/lector">
               Lector</router-link>
           </li>
           <li class="nav-item">
 
-            <router-link  class="nav-link" to="/libro">
+            <router-link class="nav-link" to="/libro">
               Libros</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/contacto">
               Contacto</router-link>
           </li>
-       
+          <li class="nav-item">
+            <router-link class="nav-link" to="/admin">
+              Admin</router-link>
+          </li>
+
         </ul>
       </div>
     </nav>

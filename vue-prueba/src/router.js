@@ -24,6 +24,23 @@ const routes = [
          name: 'Libros', 
          component: () => import('./views/LibroView.vue') 
     },
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: () => import('./components/Admin.vue'),
+      children: [
+        {
+          path: 'libros',
+          name: 'AdminLibros',
+          component: () => import('./views/AdminLibrosView.vue')
+        },
+        {
+          path: 'usuarios',
+          name: 'AdminUsuarios',
+          component: () => import('./views/AdminUsuariosView.vue')
+        }
+      ]
+    }
      
 
   ];
