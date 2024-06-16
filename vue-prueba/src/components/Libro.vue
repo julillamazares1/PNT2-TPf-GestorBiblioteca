@@ -28,28 +28,6 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-
-/* 
-  export default  {
-    name: 'vue-prueba-src-componentes-libro',
-    props: [],
-    mounted () {
-
-    },
-    data () {
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-    computed: {
-
-    } */
-
-
-
 </script>
 
 <style scoped lang="css">

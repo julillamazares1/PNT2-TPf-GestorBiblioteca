@@ -1,25 +1,16 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(250, 6, 6, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -28,31 +19,28 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f50a0a;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: Verdana;
+  font-weight: bold;
+  color: rgb(253, 251, 251);
+  text-shadow: 2px 2px 5px rgb(74, 73, 73);
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 5px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.6em 1em;
+  font-size: 0.5em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #4CAF50;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  justify-content: center;
 }
 
 .card {
@@ -71,10 +59,194 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
+
   button {
     background-color: #f9f9f9;
+    justify-content: center;
   }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  padding: 25px 20px;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  color: #4CAF50;
+}
+
+.book-list {
+  list-style: none;
+  padding: 0;
+}
+
+.book-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+form label {
+  margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  place-items: center;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.header-flex img {
+  max-width: 100%;
+  height: auto;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: rgb(10, 104, 71);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+.nav-link:hover {
+  background-color: #949494;
+  color: #555;
+}
+
+.router-view {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Estilos adicionales para contacto.vue */
+.src-componentes-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  background-color: #f8f9fa;
+}
+
+.src-componentes-formulario .jumbotron {
+  background-color: rgb(122, 186, 120);
+  color: rgb(10, 104, 71);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.src-componentes-formulario .form-control {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  width: 70%;
+  background-color: #fff;
+}
+
+.src-componentes-formulario h2 {
+  color: white;
+}
+
+.src-componentes-formulario hr {
+  background-color: #eee;
+}
+
+.src-componentes-formulario label {
+  text-transform: capitalize;
+}
+
+.src-componentes-formulario .alert {
+  width: 30%;
+  font-size: 12px;
+  padding: 5px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.src-componentes-formulario .btn-success .btnprimary {
+  width: 40%;
+  margin-bottom: 10px;
 }

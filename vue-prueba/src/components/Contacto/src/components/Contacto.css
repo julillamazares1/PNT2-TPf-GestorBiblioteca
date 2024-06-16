@@ -45,6 +45,6 @@ label {
 
 }
 
-.btn-success {
-  width: 40%; 
+.btn-success .btn-primary{
+  width: 40%;
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Lista de usuarios</h1>
+        <h2>Lista de usuarios</h2>
         <button @click="mostrarFormularioAgregar = true">Agregar Usuario</button>
         <ul>
             <li v-for="usuario in usuarios" :key="usuario.id">

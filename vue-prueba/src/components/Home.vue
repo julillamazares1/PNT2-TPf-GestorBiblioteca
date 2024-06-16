@@ -1,5 +1,5 @@
-<template>
 
+<template>
     <section id="home">
       <p>Te invitamos a conocer nuestra colección de libros y que encuentres tus próximos favoritos.</p>
     </section>

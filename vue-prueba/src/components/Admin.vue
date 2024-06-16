@@ -1,9 +1,9 @@
 <template>
     <div>
-      <h1>Funciones CRUD</h1>
+      <h2>Funciones CRUD</h2>
       <div>
-        <router-link to="/admin/libros" class="btn btn-primary">Administrar Libros</router-link>
-        <router-link to="/admin/usuarios" class="btn btn-primary">Administrar Usuarios</router-link>
+        <router-link to="/admin/libros" class="btn btn-success">Administrar Libros</router-link>
+        <router-link to="/admin/usuarios" class="btn btn-success">Administrar Usuarios</router-link>
       </div>
       <router-view></router-view>
     </div>
