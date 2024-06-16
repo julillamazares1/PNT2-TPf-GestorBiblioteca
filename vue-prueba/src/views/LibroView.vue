@@ -1,31 +1,33 @@
 <template>
-    <h2>Libros</h2>
-      <RouterLink to="/form" class="btn btn-primary">Agregar nuevo libro</RouterLink>
-      <ul class="list-group">
-          <li class="list-group-item" v-for="libro in libros" :key="libro.id">
-        <RouterLink :to="`/libro/${libro.id}`">
-            {{ libro.nombre }} : {{ libro.autor}} - {{ libro.descripcion }} - {{ libro.id }}
-        </RouterLink> | 
-         <RouterLink :to="`/form/${libro.id}`" class="btn btn-secondary">Editar</RouterLink>
-       </li>
-      </ul>
-  </template>
+  <div>
+    <h2>Listado de libros</h2>
+    <ul class="list-group">
+      <li class="list-group-item" v-for="libro in libros" :key="libro.id">
+        <div>
+          <strong>{{ libro.nombre }}</strong> por {{ libro.autor }} - {{ libro.descripcion }}
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
 
 
 <script setup>
-import axios from 'axios';
-import { onMounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { api } from '../api.js';
 
-const libros = ref([])
+const librosUrl = 'https://66567c019f970b3b36c58d0e.mockapi.io/libros';
+const libros = ref([]);
 
-const fetchPosts = async () => {
-  const response = await axios.get('https://66567c019f970b3b36c58d0e.mockapi.io/libros/')
-  libros.value = response.data
-}
+const obtenerLibros = async () => {
+  try {
+    libros.value = await api.obtenerDatos(librosUrl);
+  } catch (error) {
+    console.error('Error al obtener los libros:', error);
+  }
+};
 
-onMounted(fetchPosts)
-
+onMounted(obtenerLibros);
 </script>
 
 
