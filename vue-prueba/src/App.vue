@@ -15,7 +15,7 @@ export default {
 
   </header>
   <div class="container mt-3">
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid">
       <h1>Bienvenidos a Biblioteca ORT</h1>
       <br>
 
@@ -31,6 +31,29 @@ export default {
 
 
 <style scoped>
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+}
+
+
+.main-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(243, 202, 82);
+
+}
+
+
 h1 {
   font-family:Verdana;
   font-weight: bold;
@@ -44,7 +67,6 @@ h1 {
   justify-content: center; 
   align-items: center; 
   width: 100%;
-  height: auto;
 }
 
 .header-flex img {
@@ -52,7 +74,10 @@ h1 {
   height: auto;
 }
 .jumbotron {
-  text-justify: inherit;
+  text-align: center; /* Centra el texto */
+  background-color: rgb(10, 104, 71);
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .nav-links {

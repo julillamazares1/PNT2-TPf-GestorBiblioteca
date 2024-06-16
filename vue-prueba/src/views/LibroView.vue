@@ -1,5 +1,4 @@
-
-<!-- <template>
+<template>
     <h2>Libros</h2>
       <RouterLink to="/form" class="btn btn-primary">Agregar nuevo libro</RouterLink>
       <ul class="list-group">
@@ -11,27 +10,9 @@
        </li>
       </ul>
   </template>
- -->
- <template>
-  <div>
-    <h4>El boton de Libro tambien llega a la view</h4>
-    <p>LIBROS POR DOQUIER</p>
-  </div>
-</template>
+
 
 <script setup>
-import { ref } from 'vue';
-import { useRoute } from 'vue-router';
-
-// Obtener los parámetros de la ruta
-const route = useRoute();
-</script>
-
-<style scoped>
-/* Estilos para LectorView */
-</style>
-
-<!--   <script setup>
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
@@ -46,11 +27,10 @@ const fetchPosts = async () => {
 onMounted(fetchPosts)
 
 </script>
- -->
 
 
-<script>
-export default {
-name: 'libro',
-};
-</script>
+
+
+<style scoped>
+/* Estilos para LectorView */
+</style>

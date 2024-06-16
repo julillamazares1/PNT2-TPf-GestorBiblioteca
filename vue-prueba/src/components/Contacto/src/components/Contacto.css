@@ -1,0 +1,50 @@
+
+.src-componentes-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  background-color: #f8f9fa;
+}
+
+.jumbotron {
+  background-color: rgb(122, 186, 120);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.form-control {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  width: 70%;
+  background-color: #fff;
+}
+
+h2 {
+  color: white;
+}
+
+hr {
+  background-color: #eee;
+}
+
+label {
+  text-transform: capitalize;
+}
+
+.alert {
+  width: 30%;
+  font-size: 12px;
+  padding: 5px; 
+  margin: 0 auto; 
+  text-align: center; 
+
+}
+
+.btn-success {
+  width: 40%; 
+}
