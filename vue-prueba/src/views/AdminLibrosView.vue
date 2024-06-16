@@ -1,0 +1,102 @@
+<template>
+    <div>
+        <button @click="mostrarFormularioAgregar = true">Agregar Libro</button>
+        <ul>
+            <li v-for="libro in libros" :key="libro.id">
+                {{ libro.id }} - {{ libro.nombre }} - {{ libro.autor }} - {{ libro.descripcion }}
+                <button @click="editarLibro(libro)">Editar</button>
+                <button @click="borrarLibro(libro.id)">Borrar</button>
+            </li>
+        </ul>
+
+        <div v-if="mostrarFormularioAgregar">
+            <h2>Agregar Libro</h2>
+            <form @submit.prevent="agregarLibro">
+                <label>Nombre:</label>
+                <input v-model="nuevoLibro.nombre" required />
+                <label>Autor:</label>
+                <input v-model="nuevoLibro.autor" required />
+                <label>Descripción:</label>
+                <input v-model="nuevoLibro.descripcion" required />
+                <button type="submit">Guardar</button>
+                <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
+            </form>
+        </div>
+
+        <div v-if="mostrarFormularioEditar">
+            <h2>Editar Libro</h2>
+            <form @submit.prevent="actualizarLibro">
+                <label>Nombre:</label>
+                <input v-model="libroActual.nombre" required />
+                <label>Autor:</label>
+                <input v-model="libroActual.autor" required />
+                <label>Descripción:</label>
+                <input v-model="libroActual.descripcion" required />
+                <button type="submit">Guardar</button>
+                <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { api } from '../api.js'
+
+const librosUrl = 'https://66567c019f970b3b36c58d0e.mockapi.io/libros';
+
+const libros = ref([]);
+const mostrarFormularioAgregar = ref(false);
+const mostrarFormularioEditar = ref(false);
+const nuevoLibro = ref({ nombre: '', autor: '', descripcion: '' });
+const libroActual = ref({ id: '', nombre: '', autor: '', descripcion: '' });
+
+const obtenerLibros = async () => {
+    libros.value = await api.obtenerDatos(librosUrl);
+};
+
+const agregarLibro = async () => {
+    const libroAgregado = await api.agregarDato(librosUrl, nuevoLibro.value);
+    libros.value.push(libroAgregado);
+    mostrarFormularioAgregar.value = false;
+    nuevoLibro.value = { nombre: '', autor: '', descripcion: '' };
+};
+
+const editarLibro = (libro) => {
+    libroActual.value = { ...libro };
+    mostrarFormularioEditar.value = true;
+};
+
+const actualizarLibro = async () => {
+    await api.actualizarDato(librosUrl, libroActual.value);
+    const indice = libros.value.findIndex(lib => lib.id === libroActual.value.id);
+    if (indice !== -1) {
+        libros.value[indice] = libroActual.value;
+    }
+    mostrarFormularioEditar.value = false;
+    libroActual.value = { id: '', nombre: '', autor: '', descripcion: '' };
+};
+
+const borrarLibro = async (id) => {
+    await api.borrarDato(librosUrl, id);
+    libros.value = libros.value.filter(libro => libro.id !== id);
+};
+
+onMounted(obtenerLibros);
+
+</script>
+
+<style scoped>
+button {
+    margin-left: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+</style>
