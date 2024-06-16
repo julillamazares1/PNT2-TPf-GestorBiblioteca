@@ -11,7 +11,7 @@ export default {
 </script>
 <template>
    <header class="header-flex">
-    <img alt="Cabecera Biblioteca" src="/images/cabecera.webp">
+    <img alt="Cabecera Biblioteca" src="/images/cabecera.jpeg">
 
   </header>
   <div class="container mt-3">
@@ -75,6 +75,7 @@ h1 {
   color: #555;
 }
 
+
 .router-view {
   margin-top: 20px;
   padding: 10px;
@@ -82,4 +83,6 @@ h1 {
   border-radius: 5px;
   background-color: #fff;
 }
+
+
 </style>
