@@ -56,4 +56,7 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn-success{
+    margin: 10px;
+}</style>

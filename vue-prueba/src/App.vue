@@ -24,3 +24,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+  .jumbotron {
+    background-color: rgb(10, 104, 71);
+  }
+</style>
