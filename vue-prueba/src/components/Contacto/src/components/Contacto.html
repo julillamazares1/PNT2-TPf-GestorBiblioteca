@@ -1,71 +1,4 @@
-<!--  <section class="src-componentes-formulario">
-  <div class="jumbotron">
-    <h2>Formulario de contacto</h2>
-    <hr>
-
-    <form novalidate @submit.prevent="enviar()">
-      <div class="form-group">
-        <label for="nombre">nombre</label>
-        <input id="nombre" type="text" class="form-control" v-model.trim="formData.nombre"
-          @input="formDirty.nombre=true">
-
-        <div v-if="
-            (!formData.nombre || 
-            formData.nombre.length < 3 || 
-            formData.nombre.length > 10) && formDirty.nombre" class="alert alert-danger mt-1">
-          <span v-if="!formData.nombre">Campo requerido</span>
-          <span v-else-if="formData.nombre.length < 3">Este campo debe poseer al menos 3 caracteres</span>
-          <span v-else="formData.nombre.length > 10">Este campo no debe poseer más de 10 caracteres</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="apellido">apellido</label>
-        <input id="apellido" type="text" class="form-control" v-model.trim="formData.apellido"
-          @input="formDirty.apellido=true">
-
-        <div v-if="!formData.apellido && formDirty.apellido" class="alert alert-danger mt-1">
-          Campo requerido
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label for="email">email</label>
-        <input id="email" type="email" class="form-control" v-model="formData.email" @input="formDirty.email=true">
-
-        <div v-if="!formData.email && formDirty.email" class="alert alert-danger mt-1">
-          Campo requerido
-        </div>
-      </div>
-
-            <textarea class="form-control" placeholder="Escribir aqui..."
-            id="floatingTextarea2" style="height: 150px"></textarea>
- -->
-<!-- 
-      <div class="form-group">
-        <label for="textarea">Consulta</label>
-        <textarea id="text" type="text" class="form-control" v-model="formData.text" placeholder="Escribir aqui..."
-          style="height: 150px"></textarea> -->
-
-
-<!--         <input id="text" type="text" class="form-control" v-model="formData.text" @input="formDirty.text=true">
- -->
-<!--   <div v-if="!formData.email && formDirty.email" class="alert alert-danger mt-1">
-          Campo requerido
-        </div>
-      </div>
-
-      <button class="btn btn-success my-3" :disabled="validarBotonEnvio()">Enviar</button>
-
-    </form>
-
-  </div>
-</section>
-
--->
-
-<section class="src-componentes-formulario">
+<!-- <section class="src-componentes-formulario">
   <div class="jumbotron">
     <h2>Formulario de contacto</h2>
     <hr>
@@ -96,17 +29,95 @@
           Campo requerido
         </div>
       </div>
+
       <div class="form-group">
-        <label for="textarea">Consulta</label>
-        <textarea id="text" type="text" class="form-control" v-model="formData.text" placeholder="Escribir aqui..."
-          style="height: 150px"></textarea>
-        <div v-if="!formData.email && formDirty.email" class="alert alert-danger mt-1">
+        <label for="consulta">Consulta</label>
+        <textarea id="consulta" type="consulta" class="form-control" v-model.trim="formData.consulta"
+          @input="formDirty.consulta=true"></textarea>
+        <div v-if="!formData.consulta && formDirty.consulta" class="alert alert-danger mt-1">
           Campo requerido
         </div>
       </div>
+
       <div class="button-container">
         <button class="btn btn-success my-3" :disabled="validarBotonEnvio()">Enviar</button>
       </div>
     </form>
+  </div>
+</section>
+ -->
+
+<section class="src-componentes-formulario">
+  <div class="jumbotron">
+    <h2>Formulario de contacto</h2>
+    <hr>
+
+    <form novalidate @submit.prevent="enviar()">
+      <!-- Campo nombre -->
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input 
+          id="nombre" 
+          type="text" 
+          class="form-control" 
+          v-model.trim="formData.nombre"
+          @input="formDirty.nombre=true"
+        >
+        <!-- carteles de validación -->
+        <div v-if="
+            (!formData.nombre || 
+            formData.nombre.length < 3 || 
+            formData.nombre.length > 10) && formDirty.nombre"
+            class="alert alert-danger mt-1"
+        >
+          <span v-if="!formData.nombre">Campo requerido</span> 
+          <span v-else-if="formData.nombre.length < 3">Este campo debe poseer al menos 3 caracteres</span> 
+          <span v-else="formData.nombre.length > 10">Este campo no debe poseer más de 10 caracteres</span> 
+        </div>
+      </div>
+
+      <!-- Campo apellido -->
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input id="apellido" type="text" class="form-control" v-model.trim="formData.apellido" @input="formDirty.apellido=true">
+        
+        <!-- carteles de validación -->
+        <div v-if="!formData.apellido && formDirty.apellido" class="alert alert-danger mt-1">
+          Campo requerido
+        </div>
+      </div>
+
+      <!-- Campo email -->
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" class="form-control" v-model="formData.email" @input="formDirty.email=true">
+        
+        <!-- carteles de validación -->
+        <div v-if="!formData.email && formDirty.email" class="alert alert-danger mt-1">
+          Campo requerido
+        </div>
+      </div>
+
+      
+      <!-- Campo email -->
+      <div class="form-group">
+        <label for="consulta">Consulta</label>
+        <textarea id="consulta" type="consulta" class="form-control" v-model="formData.consulta" @input="formDirty.consulta=true"></textarea>
+        
+        <!-- carteles de validación -->
+        <div v-if="!formData.consulta && formDirty.consulta" class="alert alert-danger mt-1">
+          Campo requerido
+        </div>
+      </div>
+
+      <button 
+        class="btn btn-success my-3" 
+        :disabled="validarBotonEnvio()"
+      >Enviar</button>
+
+    </form>
+
+
+
   </div>
 </section>
