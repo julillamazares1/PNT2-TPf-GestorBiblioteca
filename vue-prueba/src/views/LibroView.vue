@@ -33,7 +33,36 @@ onMounted(obtenerLibros);
 
 
 
-
 <style scoped>
-/* Estilos para LectorView */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.list-group {
+  padding: 0;
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.list-group-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+strong {
+  font-size: 20px;
+  color: #333;
+}
+
 </style>

@@ -1,7 +1,6 @@
   <template>
     <div>
-      <h4>El boton de lector llega a la View</h4>
-      <p>ID del lector: {{ lectorId }}</p>
+ 
       <Lector /> 
     
     </div>
