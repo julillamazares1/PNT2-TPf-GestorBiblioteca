@@ -81,6 +81,7 @@ export default {
   color: rgb(65, 109, 25);
   padding: 10px 15px;
   border-radius: 5px;
+  background-color: rgb(191, 234, 124);
   transition: background-color 0.3s ease;
   font-size: 20px;
 }
@@ -88,4 +89,5 @@ export default {
 .nav-link:hover {
   background-color: rgba(224, 16, 16, 0.1);
 }
+
 </style>
