@@ -9,32 +9,38 @@
             </li>
         </ul>
 
-        <div v-if="mostrarFormularioAgregar">
-            <h2>Agregar Libro</h2>
-            <form @submit.prevent="agregarLibro">
-                <label>Nombre:</label>
-                <input v-model="nuevoLibro.nombre" required />
-                <label>Autor:</label>
-                <input v-model="nuevoLibro.autor" required />
-                <label>Descripción:</label>
-                <input v-model="nuevoLibro.descripcion" required />
-                <button type="submit">Guardar</button>
-                <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
-            </form>
+        <div v-if="mostrarFormularioAgregar" class="modal">
+            <div class="modal-content">
+                <span class="close" @click="mostrarFormularioAgregar = false">&times;</span>
+                <h2>Agregar Libro</h2>
+                <form @submit.prevent="agregarLibro">
+                    <label>Nombre:</label>
+                    <input v-model="nuevoLibro.nombre" required />
+                    <label>Autor:</label>
+                    <input v-model="nuevoLibro.autor" required />
+                    <label>Descripción:</label>
+                    <input v-model="nuevoLibro.descripcion" required />
+                    <button type="submit">Guardar</button>
+                    <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
+                </form>
+            </div>
         </div>
 
-        <div v-if="mostrarFormularioEditar">
-            <h2>Editar Libro</h2>
-            <form @submit.prevent="actualizarLibro">
-                <label>Nombre:</label>
-                <input v-model="libroActual.nombre" required />
-                <label>Autor:</label>
-                <input v-model="libroActual.autor" required />
-                <label>Descripción:</label>
-                <input v-model="libroActual.descripcion" required />
-                <button type="submit">Guardar</button>
-                <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
-            </form>
+        <div v-if="mostrarFormularioEditar" class="modal">
+            <div class="modal-content">
+                <span class="close" @click="mostrarFormularioEditar = false">&times;</span>
+                <h2>Editar Libro</h2>
+                <form @submit.prevent="actualizarLibro">
+                    <label>Nombre:</label>
+                    <input v-model="libroActual.nombre" required />
+                    <label>Autor:</label>
+                    <input v-model="libroActual.autor" required />
+                    <label>Descripción:</label>
+                    <input v-model="libroActual.descripcion" required />
+                    <button type="submit">Guardar</button>
+                    <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
+                </form>
+            </div>
         </div>
     </div>
 </template>
@@ -87,6 +93,56 @@ onMounted(obtenerLibros);
 </script>
 
 <style scoped>
+button {
+    margin-left: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 button {
     margin-left: 10px;
 }

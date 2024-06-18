@@ -1,39 +1,45 @@
 <template>
-    <div>
-        <h2>Lista de usuarios</h2>
-        <button @click="mostrarFormularioAgregar = true">Agregar Usuario</button>
-        <ul>
-            <li v-for="usuario in usuarios" :key="usuario.id">
-                {{ usuario.id }} - {{ usuario.usuario }} - {{ usuario.contrasena }}
-                <button @click="editarUsuario(usuario)">Editar</button>
-                <button @click="borrarUsuario(usuario.id)">Borrar</button>
-            </li>
-        </ul>
+  <div>
+      <h1>Lista de usuarios</h1>
+      <button @click="mostrarFormularioAgregar = true">Agregar Usuario</button>
+      <ul>
+          <li v-for="usuario in usuarios" :key="usuario.id">
+              {{ usuario.id }} - {{ usuario.usuario }} - {{ usuario.contrasena }}
+              <button @click="editarUsuario(usuario)">Editar</button>
+              <button @click="borrarUsuario(usuario.id)">Borrar</button>
+          </li>
+      </ul>
 
-        <div v-if="mostrarFormularioAgregar">
-            <h2>Agregar Usuario</h2>
-            <form @submit.prevent="agregarUsuario">
-                <label>Usuario:</label>
-                <input v-model="nuevoUsuario.usuario" required />
-                <label>Contraseña:</label>
-                <input v-model="nuevoUsuario.contrasena" required />
-                <button type="submit">Guardar</button>
-                <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
-            </form>
-        </div>
+      <div v-if="mostrarFormularioAgregar" class="modal">
+          <div class="modal-content">
+              <span class="close" @click="mostrarFormularioAgregar = false">&times;</span>
+              <h2>Agregar Usuario</h2>
+              <form @submit.prevent="agregarUsuario">
+                  <label>Usuario:</label>
+                  <input v-model="nuevoUsuario.usuario" required />
+                  <label>Contraseña:</label>
+                  <input v-model="nuevoUsuario.contrasena" required />
+                  <button type="submit">Guardar</button>
+                  <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
+              </form>
+          </div>
+      </div>
 
-        <div v-if="mostrarFormularioEditar">
-            <h2>Editar Usuario</h2>
-            <form @submit.prevent="actualizarUsuario">
-                <label>Usuario:</label>
-                <input v-model="usuarioActual.usuario" required />
-                <label>Contraseña:</label>
-                <input v-model="usuarioActual.contrasena" required />
-                <button type="submit">Guardar</button>
-                <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
-            </form>
-        </div>
-    </div>
+      <div v-if="mostrarFormularioEditar" class="modal">
+          <div class="modal-content">
+              <span class="close" @click="mostrarFormularioEditar = false">&times;</span>
+              <h2>Editar Usuario</h2>
+              <form @submit.prevent="actualizarUsuario">
+                  <label>Usuario:</label>
+                  <input v-model="usuarioActual.usuario" required />
+                  <label>Contraseña:</label>
+                  <input v-model="usuarioActual.contrasena" required />
+                  <button type="submit">Guardar</button>
+                  <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
+              </form>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script setup>
@@ -108,5 +114,43 @@ form {
 
 label {
     margin-top: 10px;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 </style>
