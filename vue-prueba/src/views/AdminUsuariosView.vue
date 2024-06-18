@@ -4,7 +4,7 @@
       <button @click="mostrarFormularioAgregar = true">Agregar Usuario</button>
       <ul>
           <li v-for="usuario in usuarios" :key="usuario.id">
-              {{ usuario.id }} - {{ usuario.usuario }} - {{ usuario.contrasena }}
+              {{ usuario.id }} - {{ usuario.nombre }} - {{ usuario.email }} - {{ usuario.contrasena }}
               <button @click="editarUsuario(usuario)">Editar</button>
               <button @click="borrarUsuario(usuario.id)">Borrar</button>
           </li>
@@ -15,8 +15,10 @@
               <span class="close" @click="mostrarFormularioAgregar = false">&times;</span>
               <h2>Agregar Usuario</h2>
               <form @submit.prevent="agregarUsuario">
-                  <label>Usuario:</label>
-                  <input v-model="nuevoUsuario.usuario" required />
+                  <label>Nombre:</label>
+                  <input v-model="nuevoUsuario.nombre" required />
+                  <label>Email:</label>
+                  <input v-model="nuevoUsuario.email" required />
                   <label>Contraseña:</label>
                   <input v-model="nuevoUsuario.contrasena" required />
                   <button type="submit">Guardar</button>
@@ -30,8 +32,10 @@
               <span class="close" @click="mostrarFormularioEditar = false">&times;</span>
               <h2>Editar Usuario</h2>
               <form @submit.prevent="actualizarUsuario">
-                  <label>Usuario:</label>
-                  <input v-model="usuarioActual.usuario" required />
+                  <label>Nombre:</label>
+                  <input v-model="usuarioActual.nombre" required />
+                  <label>Email:</label>
+                  <input v-model="usuarioActual.email" required />
                   <label>Contraseña:</label>
                   <input v-model="usuarioActual.contrasena" required />
                   <button type="submit">Guardar</button>
@@ -43,16 +47,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { api } from '../api.js'
+import { ref, onMounted } from 'vue';
+import { api } from '../api.js';
 
 const usuariosUrl = 'https://6664cbbc932baf9032ac1b56.mockapi.io/lectores';
 
 const usuarios = ref([]);
 const mostrarFormularioAgregar = ref(false);
 const mostrarFormularioEditar = ref(false);
-const nuevoUsuario = ref({ usuario: '', contrasena: '' });
-const usuarioActual = ref({ id: '', usuario: '', contrasena: '' });
+const nuevoUsuario = ref({ nombre: '', email: '', contrasena: '' });
+const usuarioActual = ref({ id: '', nombre: '', email: '', contrasena: '' });
 
 const obtenerUsuarios = async () => {
   try {
@@ -67,7 +71,7 @@ const agregarUsuario = async () => {
     const usuarioAgregado = await api.agregarDato(usuariosUrl, nuevoUsuario.value);
     usuarios.value.push(usuarioAgregado);
     mostrarFormularioAgregar.value = false;
-    nuevoUsuario.value = { usuario: '', contrasena: '' };
+    nuevoUsuario.value = { nombre: '', email: '', contrasena: '' };
   } catch (error) {
     console.error('Error al agregar usuario:', error.message);
   }
@@ -84,7 +88,7 @@ const actualizarUsuario = async () => {
     const indice = usuarios.value.findIndex(user => user.id === usuarioActualizado.id);
     usuarios.value[indice] = usuarioActualizado;
     mostrarFormularioEditar.value = false;
-    usuarioActual.value = { id: '', usuario: '', contrasena: '' };
+    usuarioActual.value = { id: '', nombre: '', email: '', contrasena: '' };
   } catch (error) {
     console.error('Error al actualizar usuario:', error.message);
   }
