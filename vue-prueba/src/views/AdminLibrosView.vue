@@ -1,11 +1,15 @@
 <template>
-    <div>
+   <div>
         <button @click="mostrarFormularioAgregar = true">Agregar Libro</button>
-        <ul>
-            <li v-for="libro in libros" :key="libro.id">
-                {{ libro.id }} - {{ libro.nombre }} - {{ libro.autor }} - {{ libro.descripcion }}
-                <button @click="editarLibro(libro)">Editar</button>
-                <button @click="borrarLibro(libro.id)">Borrar</button>
+        <ul class="list-group">
+            <li v-for="libro in libros" :key="libro.id" class="list-group-item">
+                <strong>{{ libro.id }} - {{ libro.nombre }}</strong>
+                <span>{{ libro.autor }}</span>
+                <span>{{ libro.descripcion }}</span>
+                <div class="actions">
+                    <button @click="editarLibro(libro)">Editar</button>
+                    <button @click="borrarLibro(libro.id)">Borrar</button>
+                </div>
             </li>
         </ul>
 
@@ -105,6 +109,7 @@ form {
 label {
     margin-top: 10px;
 }
+
 .modal {
     display: flex;
     justify-content: center;
@@ -141,6 +146,41 @@ label {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.list-group {
+  padding: 0;
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.list-group-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+strong {
+  font-size: 20px;
+  color: #333;
 }
 
 button {

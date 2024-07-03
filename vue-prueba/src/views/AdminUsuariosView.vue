@@ -1,48 +1,64 @@
 <template>
   <div>
-      <h1>Lista de usuarios</h1>
-      <button @click="mostrarFormularioAgregar = true">Agregar Usuario</button>
-      <ul>
-          <li v-for="usuario in usuarios" :key="usuario.id">
-              {{ usuario.id }} - {{ usuario.nombre }} - {{ usuario.email }} - {{ usuario.contrasena }}
-              <button @click="editarUsuario(usuario)">Editar</button>
-              <button @click="borrarUsuario(usuario.id)">Borrar</button>
-          </li>
-      </ul>
+    <h1>Lista de Usuarios</h1>
+    <button @click="mostrarFormularioAgregar = true" class="btn btn-primary">Agregar Usuario</button>
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Contraseña</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="usuario in usuarios" :key="usuario.id">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>********</td> <!-- Se muestra un texto genérico para la contraseña por seguridad -->
+          <td>
+            <button @click="editarUsuario(usuario)" class="btn btn-warning btn-sm">Editar</button>
+            <button @click="borrarUsuario(usuario.id)" class="btn btn-danger btn-sm">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div v-if="mostrarFormularioAgregar" class="modal">
-          <div class="modal-content">
-              <span class="close" @click="mostrarFormularioAgregar = false">&times;</span>
-              <h2>Agregar Usuario</h2>
-              <form @submit.prevent="agregarUsuario">
-                  <label>Nombre:</label>
-                  <input v-model="nuevoUsuario.nombre" required />
-                  <label>Email:</label>
-                  <input v-model="nuevoUsuario.email" required />
-                  <label>Contraseña:</label>
-                  <input v-model="nuevoUsuario.contrasena" required />
-                  <button type="submit">Guardar</button>
-                  <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
-              </form>
-          </div>
+    <div v-if="mostrarFormularioAgregar" class="modal">
+      <div class="modal-content">
+        <span class="close" @click="mostrarFormularioAgregar = false">&times;</span>
+        <h2>Agregar Usuario</h2>
+        <form @submit.prevent="agregarUsuario">
+          <label>Nombre:</label>
+          <input v-model="nuevoUsuario.nombre" required />
+          <label>Email:</label>
+          <input v-model="nuevoUsuario.email" required />
+          <label>Contraseña:</label>
+          <input v-model="nuevoUsuario.contrasena" required />
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" @click="mostrarFormularioAgregar = false" class="btn btn-secondary">Cancelar</button>
+        </form>
       </div>
+    </div>
 
-      <div v-if="mostrarFormularioEditar" class="modal">
-          <div class="modal-content">
-              <span class="close" @click="mostrarFormularioEditar = false">&times;</span>
-              <h2>Editar Usuario</h2>
-              <form @submit.prevent="actualizarUsuario">
-                  <label>Nombre:</label>
-                  <input v-model="usuarioActual.nombre" required />
-                  <label>Email:</label>
-                  <input v-model="usuarioActual.email" required />
-                  <label>Contraseña:</label>
-                  <input v-model="usuarioActual.contrasena" required />
-                  <button type="submit">Guardar</button>
-                  <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
-              </form>
-          </div>
+    <div v-if="mostrarFormularioEditar" class="modal">
+      <div class="modal-content">
+        <span class="close" @click="mostrarFormularioEditar = false">&times;</span>
+        <h2>Editar Usuario</h2>
+        <form @submit.prevent="actualizarUsuario">
+          <label>Nombre:</label>
+          <input v-model="usuarioActual.nombre" required />
+          <label>Email:</label>
+          <input v-model="usuarioActual.email" required />
+          <label>Contraseña:</label>
+          <input v-model="usuarioActual.contrasena" required />
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" @click="mostrarFormularioEditar = false" class="btn btn-secondary">Cancelar</button>
+        </form>
       </div>
+    </div>
   </div>
 </template>
 
@@ -108,53 +124,120 @@ onMounted(obtenerUsuarios);
 
 <style scoped>
 button {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
 }
 </style>

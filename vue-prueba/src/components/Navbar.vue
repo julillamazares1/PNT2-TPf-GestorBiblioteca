@@ -61,8 +61,12 @@ export default {
 
 <style scoped>
 .navbar {
-  width: 100%;
+  min-width: 100px;
   background-color: rgb(191, 234, 124);
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-nav {
@@ -70,6 +74,7 @@ export default {
   justify-content: center;
   gap: 20px;
   width: 100%;
+  align-items: center; 
 }
 
 .nav-item {

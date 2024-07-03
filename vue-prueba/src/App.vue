@@ -14,8 +14,9 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue';
 import './style.css';
+
+import Navbar from './components/Navbar.vue';
 
 export default {
   name: 'App',
@@ -25,6 +26,7 @@ export default {
 };
 </script>
 <style scoped>
+
   .jumbotron {
     background-color: rgb(10, 104, 71);
   }

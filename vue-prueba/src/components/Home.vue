@@ -1,4 +1,3 @@
-
 <template>
   <div id="home-container">
     <section id="home">
@@ -36,18 +35,29 @@ export default {
 </script>
 
 <style scoped>
+
+#home-container {
+  width: 100%;
+  max-width: 1000px; /* Puedes ajustar este valor según tus necesidades */
+  margin: 0 auto;
+}
+
 .carousel-inner {
   width: 100%;
+  height: 500px;
   overflow: hidden;
 }
 
 .carousel-item {
   text-align: center;
+  height: 100%;
+
 }
 
 .carousel-item img {
   margin: 0 auto;
   display: block;
+  object-fit: cover; 
 }
 
 .carousel-control-prev,
