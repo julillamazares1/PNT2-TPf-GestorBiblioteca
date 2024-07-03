@@ -14,7 +14,9 @@
 }
 
 body {
-  background-color: #4CAF50;
+  background-image: url('./assets/fondobiblioteca.jpg');
+  background-size: cover;
+  background-position: center;
   margin: 0;
   display: flex;
   place-items: center;
@@ -202,7 +204,6 @@ footer {
   background-color: #fff;
 }
 
-/* Estilos adicionales para contacto.vue */
 .src-componentes-formulario {
   display: flex;
   justify-content: center;
