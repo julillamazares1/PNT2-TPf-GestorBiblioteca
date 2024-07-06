@@ -1,52 +1,57 @@
 <template>
-   <div>
-        <button @click="mostrarFormularioAgregar = true">Agregar Libro</button>
-        <ul class="list-group">
-            <li v-for="libro in libros" :key="libro.id" class="list-group-item">
-                <strong>{{ libro.id }} - {{ libro.nombre }}</strong>
-                <span>{{ libro.autor }}</span>
-                <span>{{ libro.descripcion }}</span>
-                <div class="actions">
-                    <button @click="editarLibro(libro)">Editar</button>
-                    <button @click="borrarLibro(libro.id)">Borrar</button>
+    <section class="src-componentes-formulario">
+
+        <div class="jumbotron">
+            <div class="agregar-libro">
+                <button @click="mostrarFormularioAgregar = true">Agregar Libro</button>
+            </div>
+            <ul class="list-group">
+                <li v-for="libro in libros" :key="libro.id" class="list-group-item">
+                    <strong>{{ libro.id }} - {{ libro.nombre }}</strong>
+                    <span>{{ libro.autor }}</span>
+                    <span>{{ libro.descripcion }}</span>
+                    <div class="actions">
+                        <button @click="editarLibro(libro)" class="btn btn-warning btn-sm">Editar</button>
+                        <button @click="borrarLibro(libro.id)" class="btn btn-danger btn-sm">Borrar</button>
+                    </div>
+                </li>
+            </ul>
+
+            <div v-if="mostrarFormularioAgregar" class="modal">
+                <div class="modal-content">
+                    <span class="close" @click="mostrarFormularioAgregar = false">&times;</span>
+                    <h2>Agregar Libro</h2>
+                    <form @submit.prevent="agregarLibro">
+                        <label>Nombre:</label>
+                        <input v-model="nuevoLibro.nombre" required />
+                        <label>Autor:</label>
+                        <input v-model="nuevoLibro.autor" required />
+                        <label>Descripción:</label>
+                        <input v-model="nuevoLibro.descripcion" required />
+                        <button type="submit">Guardar</button>
+                        <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
+                    </form>
                 </div>
-            </li>
-        </ul>
+            </div>
 
-        <div v-if="mostrarFormularioAgregar" class="modal">
-            <div class="modal-content">
-                <span class="close" @click="mostrarFormularioAgregar = false">&times;</span>
-                <h2>Agregar Libro</h2>
-                <form @submit.prevent="agregarLibro">
-                    <label>Nombre:</label>
-                    <input v-model="nuevoLibro.nombre" required />
-                    <label>Autor:</label>
-                    <input v-model="nuevoLibro.autor" required />
-                    <label>Descripción:</label>
-                    <input v-model="nuevoLibro.descripcion" required />
-                    <button type="submit">Guardar</button>
-                    <button type="button" @click="mostrarFormularioAgregar = false">Cancelar</button>
-                </form>
+            <div v-if="mostrarFormularioEditar" class="modal">
+                <div class="modal-content">
+                    <span class="close" @click="mostrarFormularioEditar = false">&times;</span>
+                    <h2>Editar Libro</h2>
+                    <form @submit.prevent="actualizarLibro">
+                        <label>Nombre:</label>
+                        <input v-model="libroActual.nombre" required />
+                        <label>Autor:</label>
+                        <input v-model="libroActual.autor" required />
+                        <label>Descripción:</label>
+                        <input v-model="libroActual.descripcion" required />
+                        <button type="submit">Guardar</button>
+                        <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
+                    </form>
+                </div>
             </div>
         </div>
-
-        <div v-if="mostrarFormularioEditar" class="modal">
-            <div class="modal-content">
-                <span class="close" @click="mostrarFormularioEditar = false">&times;</span>
-                <h2>Editar Libro</h2>
-                <form @submit.prevent="actualizarLibro">
-                    <label>Nombre:</label>
-                    <input v-model="libroActual.nombre" required />
-                    <label>Autor:</label>
-                    <input v-model="libroActual.autor" required />
-                    <label>Descripción:</label>
-                    <input v-model="libroActual.descripcion" required />
-                    <button type="submit">Guardar</button>
-                    <button type="button" @click="mostrarFormularioEditar = false">Cancelar</button>
-                </form>
-            </div>
-        </div>
-    </div>
+    </section>
 </template>
 
 <script setup>
@@ -97,6 +102,27 @@ onMounted(obtenerLibros);
 </script>
 
 <style scoped>
+.src-componentes-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background-color: #f8f9fa;
+}
+
+
+.jumbotron {
+    background-color: rgb(122, 186, 120);
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 1000px;
+}
+.agregar-libro {
+    margin-bottom: 20px; 
+}
+
 button {
     margin-left: 10px;
 }
@@ -125,7 +151,7 @@ label {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color:rgb(239, 156, 102);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -149,38 +175,38 @@ label {
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .list-group {
-  padding: 0;
+    padding: 0;
 }
 
 .list-group-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .list-group-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .actions {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 strong {
-  font-size: 20px;
-  color: #333;
+    font-size: 20px;
+    color: #333;
 }
 
 button {

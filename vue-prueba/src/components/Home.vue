@@ -38,7 +38,7 @@ export default {
 
 #home-container {
   width: 100%;
-  max-width: 1000px; /* Puedes ajustar este valor según tus necesidades */
+  max-width: 1000px; 
   margin: 0 auto;
 }
 

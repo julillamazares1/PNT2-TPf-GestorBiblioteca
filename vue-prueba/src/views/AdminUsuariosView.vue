@@ -1,30 +1,34 @@
+html
+Copiar código
 <template>
   <div>
     <h1>Lista de Usuarios</h1>
     <button @click="mostrarFormularioAgregar = true" class="btn btn-primary">Agregar Usuario</button>
-    <table class="table mt-3">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Contraseña</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="usuario in usuarios" :key="usuario.id">
-          <td>{{ usuario.id }}</td>
-          <td>{{ usuario.nombre }}</td>
-          <td>{{ usuario.email }}</td>
-          <td>********</td> <!-- Se muestra un texto genérico para la contraseña por seguridad -->
-          <td>
-            <button @click="editarUsuario(usuario)" class="btn btn-warning btn-sm">Editar</button>
-            <button @click="borrarUsuario(usuario.id)" class="btn btn-danger btn-sm">Borrar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="jumbotron">
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Contraseña</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="usuario in usuarios" :key="usuario.id">
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>********</td> <!-- Se muestra un texto genérico para la contraseña por seguridad -->
+            <td>
+              <button @click="editarUsuario(usuario)" class="btn btn-warning btn-sm">Editar</button>
+              <button @click="borrarUsuario(usuario.id)" class="btn btn-danger btn-sm">Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div v-if="mostrarFormularioAgregar" class="modal">
       <div class="modal-content">
@@ -151,7 +155,7 @@ label {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color:rgb(239, 156, 102);
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -174,12 +178,24 @@ label {
   cursor: pointer;
 }
 
+.jumbotron {
+  background-color: rgb(122, 186, 120);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto; /* Ajusta el margen para centrar */
+  margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
@@ -187,57 +203,5 @@ label {
 
 .table th {
   background-color: #f2f2f2;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
-}
-
-.btn-warning {
-  background-color: #ffc107;
-  color: #212529;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-warning:hover {
-  background-color: #e0a800;
-}
-
-.btn-danger {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-danger:hover {
-  background-color: #c82333;
 }
 </style>

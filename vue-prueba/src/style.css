@@ -14,13 +14,14 @@
 }
 
 body {
-  background-image: url('./assets/fondobiblioteca.jpg');
+/*   background-image: url('./assets/fondobiblioteca.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center; */
+  background-color:  greenyellow;
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 1024px;
   min-height: 100vh;
 }
 

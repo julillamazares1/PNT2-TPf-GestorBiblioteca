@@ -1,14 +1,17 @@
 <template>
-  <div>
-    <h2>Listado de libros</h2>
-    <ul class="list-group">
-      <li class="list-group-item" v-for="libro in libros" :key="libro.id">
-        <div>
-          <strong>{{ libro.nombre }}</strong> por {{ libro.autor }} - {{ libro.descripcion }}
-        </div>
-      </li>
-    </ul>
-  </div>
+  <section class="src-componentes-formulario">
+
+    <div class="jumbotron">
+      <h2>Listado de libros</h2>
+      <ul class="list-group">
+        <li class="list-group-item" v-for="libro in libros" :key="libro.id">
+          <div>
+            <strong>{{ libro.nombre }}</strong> por {{ libro.autor }} - {{ libro.descripcion }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 
@@ -34,6 +37,24 @@ onMounted(obtenerLibros);
 
 
 <style scoped>
+.src-componentes-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  background-color: #f8f9fa;
+}
+
+
+.jumbotron {
+  background-color: rgb(122, 186, 120);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
 h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -64,5 +85,4 @@ strong {
   font-size: 20px;
   color: #333;
 }
-
 </style>
